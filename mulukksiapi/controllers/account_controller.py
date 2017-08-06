@@ -1,11 +1,11 @@
-from garnet_api import app
+from mulukksiapi import app
 from flask import request, jsonify
-from garnet_api.models.account import User
-from garnet_api.models.account import UserService
-from garnet_api.security.idam import find_user
-from garnet_api.extensions.jsonp import enable_jsonp
-from garnet_api.extensions.error_handling import ErrorResponse
-from garnet_api.extensions.error_handling import SuccessResponse
+from mulukksiapi.models.account import User
+from mulukksiapi.models.account import UserService
+from mulukksiapi.security.idam import find_user
+from mulukksiapi.extensions.jsonp import enable_jsonp
+from mulukksiapi.extensions.error_handling import ErrorResponse
+from mulukksiapi.extensions.error_handling import SuccessResponse
 from flask_jwt import jwt_required, current_identity
 import uuid
 
@@ -35,7 +35,7 @@ def get_account_by_id(user_id):
 
 
 # --------------------------------------------------------------------------
-# PUT: /account/<uid>/password
+# PUT: /account/<user_id>/password
 # --------------------------------------------------------------------------
 @app.route('/api/v1/account/<user_id>/password', methods=['PUT'])
 @jwt_required()
@@ -79,7 +79,7 @@ def update_account_email(user_id):
 # --------------------------------------------------------------------------
 # POST: /account
 # --------------------------------------------------------------------------
-# Registers a new user in the system using garnet_api Identity Sub-System
+# Registers a new user in the system using mulukksiapi Identity Sub-System
 @app.route('/api/v1/account', methods=['POST'])
 @enable_jsonp
 def post_account():

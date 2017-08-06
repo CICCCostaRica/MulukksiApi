@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from garnet_api import app
-from garnet_api.models.account import User
+from mulukksiapi import app
+from mulukksiapi.models.account import User
 from mongoengine import *
 
 # ------------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # run.py
 import os
-from garnet_api import app
+from mulukksiapi import app
 
 """
     Garnet API is a boilerplate application that allows you to create Python + Flask API
@@ -16,4 +16,4 @@ __version__ = "1.0"
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 8080))
-    app.run('127.0.0.1', port)
+    app.run('192.168.17.138', port)
