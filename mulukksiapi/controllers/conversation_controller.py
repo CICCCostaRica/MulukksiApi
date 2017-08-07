@@ -50,3 +50,16 @@ def post_participant(conversation_id):
 def get_conversation(conversation_id):
     conversation = Conversation.objects.get(conversation_id = conversation_id)
     return jsonify(conversation.dict())
+
+# --------------------------------------------------------------------------
+#  GET /api/v1/conversation/status/<status_id>
+# --------------------------------------------------------------------------
+# Gets the account information associated with current session in the system
+@app.route('/api/v1/conversation/status/<status_id>', methods=['GET'])
+@jwt_required()
+def get_conversations(status_id):
+    conversation = Conversation.objects.filter(status = status_id)
+    conversations = []
+    for count in conversation:
+        conversations.append(count.dict())
+    return jsonify(conversations)
