@@ -8,7 +8,6 @@ import uuid
 # --------------------------------------------------------------------------
 #  POST /api/v1/conversation
 # --------------------------------------------------------------------------
-# Gets the account information associated with current session in the system
 @app.route('/api/v1/conversation', methods=['POST'])
 @jwt_required()
 def post_conversation():
@@ -33,7 +32,6 @@ def post_conversation():
 # --------------------------------------------------------------------------
 #  POST /api/v1/conversation/<conversation_id>/participant
 # --------------------------------------------------------------------------
-# Gets the account information associated with current session in the system
 @app.route('/api/v1/conversation/<conversation_id>/participant', methods=['POST'])
 @jwt_required()
 def post_participant(conversation_id):
@@ -41,20 +39,20 @@ def post_participant(conversation_id):
     conversation.add_participant(current_identity.id)
     return jsonify(conversation.dict())
 
+
 # --------------------------------------------------------------------------
 #  GET /api/v1/conversation/<conversation_id>
 # --------------------------------------------------------------------------
-# Gets the account information associated with current session in the system
 @app.route('/api/v1/conversation/<conversation_id>', methods=['GET'])
 @jwt_required()
 def get_conversation(conversation_id):
     conversation = Conversation.objects.get(conversation_id = conversation_id)
     return jsonify(conversation.dict())
 
+
 # --------------------------------------------------------------------------
 #  GET /api/v1/conversation/status/<status_id>
 # --------------------------------------------------------------------------
-# Gets the account information associated with current session in the system
 @app.route('/api/v1/conversation/status/<status_id>', methods=['GET'])
 @jwt_required()
 def get_conversations(status_id):
